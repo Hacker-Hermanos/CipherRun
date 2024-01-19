@@ -2,6 +2,8 @@
 
 CipherRun is a tool designed to automate common hacking techniques for ethical hacking and penetration testing purposes. This toolkit focuses on evading antivirus solutions through the use of heuristics bypasses, encryption, and different shellcode running techniques.
 
+Connect with us! https://linktr.ee/hackerhermanos
+
 ## Contents
 
 - **CipherRun.cs**: Contains the main program logic.
@@ -45,3 +47,11 @@ This toolkit is provided for educational and ethical hacking purposes only. The 
 ## Credits
 
 This project was inspired by [Apophis](https://github.com/tasox/Apophis). We would like to extend our gratitude to the creators of Apophis for their innovative work, which served as a foundation and inspiration for this tool.
+
+## To-Do
+
+- Investigate how to make the experience more user friendly
+- Add new heuristic bypasses and techniques
+- Add new Shellcode Running techniques
+- Add new encryption routines
+- Add an aliases to select encryption+technique
