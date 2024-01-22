@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System;
 
-namespace Heuristics
+namespace CipherRun.Heuristics
 {
 	public static class Heuristics
 	{

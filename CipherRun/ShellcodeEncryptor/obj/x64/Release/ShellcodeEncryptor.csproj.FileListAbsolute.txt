@@ -1,0 +1,6 @@
+X:\CipherRun\ShellcodeEncryptor\bin\x64\Release\ShellcodeEncryptor.exe.config
+X:\CipherRun\ShellcodeEncryptor\bin\x64\Release\ShellcodeEncryptor.exe
+X:\CipherRun\ShellcodeEncryptor\bin\x64\Release\ShellcodeEncryptor.pdb
+X:\CipherRun\ShellcodeEncryptor\obj\x64\Release\ShellcodeEncryptor.csproj.CoreCompileInputs.cache
+X:\CipherRun\ShellcodeEncryptor\obj\x64\Release\ShellcodeEncryptor.exe
+X:\CipherRun\ShellcodeEncryptor\obj\x64\Release\ShellcodeEncryptor.pdb

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CipherRun")]
+[assembly: AssemblyTitle("ShellcodeEncryptor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CipherRun")]
+[assembly: AssemblyProduct("ShellcodeEncryptor")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("725dbce5-5eec-40cd-b61f-4562da087253")]
+[assembly: Guid("be093fc1-3732-4ee2-a0ac-f6befcf84088")]
 
 // Version information for an assembly consists of the following four values:
 //

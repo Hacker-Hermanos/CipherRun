@@ -5,7 +5,7 @@ namespace Caesar
 	public class Encryption
 	{
 		// VARS
-		// substitution key -> TO-DO: randomize key!
+		// random substitution key
 		static Random rnd = new Random();
 		public static int substitutionKey = rnd.Next(5, 101);
 
