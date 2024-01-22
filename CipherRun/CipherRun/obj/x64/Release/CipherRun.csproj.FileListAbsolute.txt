@@ -1,7 +1,0 @@
-x:\CipherRun\CipherRun\bin\x64\Release\CipherRun.exe.config
-x:\CipherRun\CipherRun\bin\x64\Release\CipherRun.exe
-x:\CipherRun\CipherRun\bin\x64\Release\CipherRun.pdb
-x:\CipherRun\CipherRun\obj\x64\Release\CipherRun.csproj.CoreCompileInputs.cache
-x:\CipherRun\CipherRun\obj\x64\Release\CipherRun.exe
-x:\CipherRun\CipherRun\obj\x64\Release\CipherRun.pdb
-x:\CipherRun\CipherRun\obj\x64\Release\CipherRun.csprojAssemblyReference.cache
