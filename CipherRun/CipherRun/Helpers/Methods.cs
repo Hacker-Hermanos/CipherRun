@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using static CipherRun.Data.Enums;
 using static CipherRun.Data.Structs;
@@ -710,6 +710,16 @@ namespace CipherRun.Helpers
         public static IntPtr NtQueryInfoP = GetSyscallStub("NtQueryInformationProcess");
         NtQueryInformationProcess NtQueryInformationProcess = Marshal.GetDelegateForFunctionPointer<NtQueryInformationProcess>(NtQueryInfoP);
 
+        public static IntPtr NtGetThreadContext_ptr = GetSyscallStub("NtGetContextThread");
+        public static NtGetContextThread NtGetContextThread = Marshal.GetDelegateForFunctionPointer<NtGetContextThread>(NtGetThreadContext_ptr);
+
+        public static IntPtr NtSetThreadContext_ptr = GetSyscallStub("NtSetContextThread");
+        public static NtSetContextThread NtSetContextThread = Marshal.GetDelegateForFunctionPointer<NtSetContextThread>(NtSetThreadContext_ptr);
+
+        public static IntPtr NtSuspendThread_ptr = GetSyscallStub("NtSuspendThread");
+        public static NtSuspendThread NtSuspendThread = Marshal.GetDelegateForFunctionPointer<NtSuspendThread>(NtSuspendThread_ptr);
+        
+
         public static IntPtr QueueApc_ptr = GetLibraryAddress("kernel32.dll", "QueueUserAPC");
         public static QueueUserAPC QueueUserAPC = Marshal.GetDelegateForFunctionPointer<QueueUserAPC>(QueueApc_ptr);
 
@@ -722,8 +732,12 @@ namespace CipherRun.Helpers
         public static IntPtr CreateP = GetLibraryAddress("kernel32.dll", "CreateProcessA");
         public static CreateProcessA CreateProcessA = Marshal.GetDelegateForFunctionPointer<CreateProcessA>(CreateP);
 
-        public static IntPtr WNetUseConnectionA_ptr = GetLibraryAddress("mpr.dll", "WNetUseConnectionA");
+        public static IntPtr mpr = LoadModuleFromDisk("c:\\windows\\system32\\mpr.dll"); /* this is because mpr.dll is not loaded by default */
+        public static IntPtr WNetUseConnectionA_ptr = GetExportAddress(mpr, "WNetUseConnectionA");
         public static WNetUseConnectionA WNetUseConnectionA = Marshal.GetDelegateForFunctionPointer<WNetUseConnectionA>(WNetUseConnectionA_ptr);
+
+
+
 
     }
 }
