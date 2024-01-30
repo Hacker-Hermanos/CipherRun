@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using static CipherRun.Data.Enums;
 using static CipherRun.Data.Structs;
@@ -24,7 +24,17 @@ namespace CipherRun.Data
         out PROCESSINFORMATION lpProcInformation
         );
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        public unsafe delegate int NtGetContextThread(
+            IntPtr CurrentThread,
+            ref CONTEXT64 ctx
+            );
+
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        public delegate int NtSetContextThread(IntPtr hThread, ref CONTEXT64 context);
+
         
+
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate int NtQueryInformationProcess(
             IntPtr hProcess,
@@ -38,7 +48,8 @@ namespace CipherRun.Data
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate uint NtWriteVirtualMemory(
             IntPtr ProcessHandle, 
-            IntPtr BaseAddress, IntPtr Buffer, 
+            IntPtr BaseAddress,
+            byte[] Buffer, 
             uint NumberOfBytesToWrite, 
             ref uint NumberOfBytesWritten
             );
@@ -54,16 +65,21 @@ namespace CipherRun.Data
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate NTSTATUS NtOpenThread(
-            IntPtr ThreadHandle,
+            ref IntPtr ThreadHandle,
             uint DesiredAccess, /*Example: THREAD_ALL_ACCESS = 0x1F03FF*/
-            OBJECT_ATTRIBUTES ObjectAttributes,
-            CLIENT_ID ClientId
+            ref OBJECT_ATTRIBUTES ObjectAttributes,
+            ref CLIENT_ID ClientId
             );
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate NTSTATUS NtResumeThread(
             IntPtr ThreadHandle,
             ref int PreviousSuspendCount);
+
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        public delegate NTSTATUS NtSuspendThread(
+           IntPtr ThreadHandle,
+           ref int PreviousSuspendCount);
 
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
